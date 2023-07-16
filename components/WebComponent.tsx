@@ -11,11 +11,12 @@ export function WebComponent() {
       // This gets past ReferenceError: self is not defined
       const { MpSdk, setupSdk } = await import('@matterport/webcomponent');
       const newWebComponent = document.createElement('matterport-viewer');
+      newWebComponent.setAttribute('m', 'SxQL3iGyoDo');
+      newWebComponent.setAttribute(
+        'application-key',
+        'yxszifc05b1bidcsqfr60806d'
+      );
       container.current.appendChild(newWebComponent);
-      alert('test');
-
-      /*      document.getElementById('showcase').innerHTML = '<matterport-viewer
-        m="SxQL3iGyoDo" application-key="3nhn5rm8hmr1x74hsr46t7fud"></matterport-viewer>'; */
     }
   }, []);
 

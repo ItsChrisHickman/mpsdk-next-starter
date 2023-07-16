@@ -15,8 +15,9 @@ a {
   box-sizing: border-box;
 }
 
+iframe,
 .webcomponent {
   position: relative;
-  width: 100%;
+  width: 90vw;
   height: 400px;
 }

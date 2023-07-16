@@ -19,7 +19,7 @@ export function Showcase() {
 
   return (
     <div className="showcase">
-      <div className="container" id="showcase" ref={container}></div>
+      <div className="container" ref={container}></div>
     </div>
   );
 }

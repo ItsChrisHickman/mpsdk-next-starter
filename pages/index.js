@@ -16,11 +16,11 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
         <p className={styles.description}>I cannot make an IFRAME work.</p>
-        <h2>@matterport/sdk</h2>
-        <Showcase />
-        <h2>@matterport/webcomponent</h2>
-        <WebComponent />
       </main>
+      <h2>@matterport/sdk</h2>
+      <Showcase />
+      <h2>@matterport/webcomponent</h2>
+      <WebComponent />
 
       <footer className={styles.footer}>
         <a href="https://next.new" target="_blank" rel="noopener noreferrer">
