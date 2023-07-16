@@ -3,6 +3,7 @@ import styles from '../styles/Home.module.css';
 import { useEffect, useRef, useState } from 'react';
 import { Showcase } from '../components/Showcase';
 import { WebComponent } from '../components/WebComponent';
+import { Viewer } from '../components/Viewer';
 
 export default function Home() {
   return (
@@ -28,7 +29,8 @@ export default function Home() {
       <Showcase />
       <h2>@matterport/webcomponent</h2>
       <WebComponent />
-
+      <h2>@matterport/webcomponent - Method 2</h2>
+      <Viewer />
       <footer className={styles.footer}>
         <a href="https://next.new" target="_blank" rel="noopener noreferrer">
           Created with&nbsp;<b>next.new</b>&nbsp;⚡️

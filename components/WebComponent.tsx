@@ -16,6 +16,7 @@ export function WebComponent() {
         'application-key',
         'yxszifc05b1bidcsqfr60806d'
       );
+      newWebComponent.setAttribute('assetBase', '../assets/');
       container.current.appendChild(newWebComponent);
     }
   }, []);
