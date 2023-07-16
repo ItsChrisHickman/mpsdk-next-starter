@@ -10,4 +10,4 @@ Both NPM packages, when imported - e.g. - `import '@matterport/webcomponent'` ca
 
 The way to get around this is to load it via an EffectHook, however, this does not work with the WebComponent (and we're still blocked when it comes to the iframe).
 
-Try it on Stackblitz.com: [https://stackblitz.com/edit/mpsdk-next-starter](https://stackblitz.com/edit/mpsdk-next-starter)
+Try it on Stackblitz.com: [https://stackblitz.com/edit/mpsdk-next-starter](https://stackblitz.com/edit/mpsdk-next-starter) -- you'll need to install the webcomponent every time because Stackblitz is being annoying -- just terminate node, then npm install @matterport/webcomponent, then run `npm run dev`
