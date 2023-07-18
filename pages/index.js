@@ -1,9 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-// import { useEffect, useRef, useState } from 'react';
 import { Showcase } from '../components/Showcase';
 import { WebComponent } from '../components/WebComponent';
-// import { Viewer } from '../components/Viewer';
 
 export default function Home() {
   return (

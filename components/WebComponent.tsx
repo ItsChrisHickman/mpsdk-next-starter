@@ -14,7 +14,7 @@ export function WebComponent() {
       newWebComponent.setAttribute('m', 'SxQL3iGyoDo');
       newWebComponent.setAttribute(
         'application-key',
-        'yxszifc05b1bidcsqfr60806d'
+        '3nhn5rm8hmr1x74hsr46t7fud'
       );
       newWebComponent.setAttribute('asset-base', 'assets');
       container.current.appendChild(newWebComponent);
