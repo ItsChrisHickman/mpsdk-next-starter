@@ -6,12 +6,14 @@ export function Viewer() {
 
   return (
     <>
-      <MatterportViewer
-        m="j4RZx7ZGM6T"
-        assetBase="/assets/"
-        applicationKey="yxszifc05b1bidcsqfr60806d"
-        onReady={(mpSdk: MpSdk) => setSdk(mpSdk)}
-      />
+      <div style="position: relative">
+        <matterport-viewer
+          m="j4RZx7ZGM6T"
+          asset-base="../assets/"
+          application-key="yxszifc05b1bidcsqfr60806d"
+          onReady={(mpSdk: MpSdk) => setSdk(mpSdk)}
+        />
+      </div>
     </>
   );
 }
