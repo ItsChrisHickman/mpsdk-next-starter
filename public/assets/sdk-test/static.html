@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0;
+      }
+      #test-frame {
+        width: 100vw;
+        height: 100vh;
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <iframe id='test-frame' allow='fullscreen; xr-spatial-tracking'></iframe>
+  </body>
+  <script>
+    (async function () {
+      const urlParams = new URLSearchParams(window.location.search);
+      async function getPageVersion() {
+      // if specifying a specific version of the page through a URL param, use that...
+        const pageVersionOverride = urlParams.get('pageVersion');
+        if (pageVersionOverride) {
+          return pageVersionOverride;
+        }
+
+        // ... otherwise, read the config of the apiHost and load the version configured there
+        const host = urlParams.get('apiHost') || urlParams.get('host');
+        const config = await fetch(host + '/api/v1/config/showcase');
+        const result = await config.json();
+        const sdkConfig = result.sdk;
+        return sdkConfig.test;
+      }
+
+      function buildPageUrl(pageVersion) {
+        return `${window.location.origin}/showcase-sdk/test/${pageVersion}/index.html?${decodeURIComponent(urlParams)}`;
+      }
+
+      const testFrame = document.getElementById('test-frame');
+      Object.defineProperty(window, 'SDK_INSTANCE', {
+        get() {
+          try {
+            return testFrame.contentWindow.SDK_INSTANCE;
+          } catch {
+            console.error('SDK_INSTANCE is not accessible, likely due to X-frame restrictions');
+          }
+        },
+      });
+
+      const testPageVersion = await getPageVersion();
+      console.log('Showcase SDK test page version', testPageVersion);
+      try {
+        // if we have a fully qualified URL, use that...
+        new URL(testPageVersion); // will throw if `testPageVersion` is not a valid URL
+        urlParams.delete('pageVersion'); // don't include the pageVersion to the test page (and subsequently Showcase)
+        testFrame.src = `${testPageVersion}?${decodeURIComponent(urlParams)}`;
+      } catch {
+        // ... if not, treat it as a version string instead
+        testFrame.src = buildPageUrl(testPageVersion);
+      }
+
+    })();
+  </script>
+</html>
