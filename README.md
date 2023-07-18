@@ -2,12 +2,12 @@
 
 This is an attempt to create a Next.js starter that shows how to integrate both the [https://www.npmjs.com/package/@matterport/webcomponent](Matterport WebComponent) and [https://www.npmjs.com/package/@matterport/sdk](@matterport/sdk).
 
-I'm getting the `<iframe>` blocked due to CORS errors within Next when testing in Stackblitz.com, and the WebComponent doesn't seem to want to load properly.
+If you test this within Stackblitz, you will get an `<iframe>` error due to CORS for the NPM Package.
 
-Both NPM packages, when imported - e.g. - `import '@matterport/webcomponent'` cause the following Next.js specific error to occur:
-
-`ReferenceError: self is not defined`
-
-The way to get around this is to load it via an EffectHook, however, this does not work with the WebComponent (and we're still blocked when it comes to the iframe).
+The WebComponent is loaded dynamically as our NPM Package is not compatible with server side rendering.
 
 Try it on Stackblitz.com: [https://stackblitz.com/edit/mpsdk-next-starter](https://stackblitz.com/edit/mpsdk-next-starter) -- you'll need to install the webcomponent every time because Stackblitz is being annoying -- just terminate node, then npm install @matterport/webcomponent, then run `npm run dev`
+
+You may need to:
+
+`yarn add @matterport/webcomponent yarn matterport-assets public/assets`
