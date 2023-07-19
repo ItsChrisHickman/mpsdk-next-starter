@@ -6,8 +6,4 @@ If you test this within Stackblitz, you will get an `<iframe>` error due to CORS
 
 The WebComponent is loaded dynamically as our NPM Package is not compatible with server side rendering.
 
-Try it on Stackblitz.com: [https://stackblitz.com/edit/mpsdk-next-starter](https://stackblitz.com/edit/mpsdk-next-starter) -- you'll need to install the webcomponent every time because Stackblitz is being annoying -- just terminate node, then npm install @matterport/webcomponent, then run `npm run dev`
-
-You may need to:
-
-`yarn add @matterport/webcomponent yarn matterport-assets public/assets`
+Try it on Stackblitz.com: [https://stackblitz.com/edit/mpsdk-next-starter](https://stackblitz.com/edit/mpsdk-next-starter) -- you'll need to click 'Open in New Tab' on the preview to see the @matterport/sdk preview as StackBlitz.com has CORS restrictions that prevent the IFRAME from rendering.
