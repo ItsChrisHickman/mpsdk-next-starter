@@ -2,7 +2,7 @@
 
 This is an attempt to create a Next.js starter that shows how to integrate both the [https://www.npmjs.com/package/@matterport/webcomponent](Matterport WebComponent) and [https://www.npmjs.com/package/@matterport/sdk](@matterport/sdk).
 
-If you test this within Stackblitz, you will get an `<iframe>` error due to CORS for the NPM Package.
+If you test this within Stackblitz, you will get an `<iframe>` error due to CORS for the NPM Package.  Plaese click 'open in new tab' to see the SDK for Embeds NPM Package in the demo.
 
 The WebComponent is loaded dynamically as our NPM Package is not compatible with server side rendering.
 
