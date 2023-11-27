@@ -1,4 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
+const appKey = "3nhn5rm8hmr1x74hsr46t7fud";
+import { MpSdk } from "@matterport/sdk";
 
 export function Showcase() {
   const [sdk, setSdk] = useState(null);
@@ -7,14 +9,17 @@ export function Showcase() {
   useEffect(() => {
     async function loadSDK() {
       // This gets past ReferenceError: self is not defined
-      const { MpSdk, setupSdk } = await import('@matterport/sdk');
+      const { setupSdk } = await import("@matterport/sdk");
       if (!started && container.current) {
         started = true;
-        setupSdk('3nhn5rm8hmr1x74hsr46t7fud', {
+        const mpSdk = await setupSdk(appKey, {
+          space: "rjASUFc5Mxn",
           container: container.current,
-          space: 'j4RZx7ZGM6T',
-          iframeQueryParams: { qs: 1 },
-        }).then(setSdk);
+          iframeQueryParams: {
+            qs: "1",
+          },
+        });
+        startApp(mpSdk);
       }
     }
     loadSDK();
@@ -25,4 +30,8 @@ export function Showcase() {
       <div className="container" ref={container}></div>
     </div>
   );
+}
+
+async function startApp(mpSdk: MpSdk) {
+  console.log("SDK NPM Package Loaded", mpSdk);
 }

@@ -3,18 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3081",
     "build": "next build",
-    "start": "next start"
+    "start": "next start -p 3082"
   },
   "dependencies": {
-    "@matterport/sdk": "^1.4.20",
+    "@matterport/sdk": "^1.4.22",
     "@matterport/webcomponent": "^0.1.28",
     "exenv": "^1.2.2",
     "next": "^13.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "three": "0.146.0"
+    "three": "0.151.3"
   },
   "devDependencies": {
     "@types/node": "20.4.2",
