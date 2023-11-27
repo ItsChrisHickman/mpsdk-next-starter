@@ -4,16 +4,17 @@ import { MpSdk } from "@matterport/sdk";
 
 export function Showcase() {
   const [sdk, setSdk] = useState(null);
+  const [started, setStarted] = useState(false);
+
   const container = useRef<HTMLDivElement>(null);
-  let started = false;
   useEffect(() => {
     async function loadSDK() {
-      // This gets past ReferenceError: self is not defined
+      // Dynamically import to Avoid SSR / ReferenceError: self is not defined
       const { setupSdk } = await import("@matterport/sdk");
       if (!started && container.current) {
-        started = true;
+        setStarted(true);
         const mpSdk = await setupSdk(appKey, {
-          space: "rjASUFc5Mxn",
+          space: "JGPnGQ6hosj",
           container: container.current,
           iframeQueryParams: {
             qs: "1",

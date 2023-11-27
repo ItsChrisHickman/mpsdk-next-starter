@@ -1,20 +1,24 @@
 import { useEffect, useRef, useState } from "react";
-import { MpSdk } from "@matterport/webcomponent";
+import styles from "../styles/WebComponent.module.css";
+
 const appKey = "3nhn5rm8hmr1x74hsr46t7fud";
 
 export function WebComponent() {
   const [sdk, setSdk] = useState(null);
+  const [started, setStarted] = useState(false);
+
   const container = useRef<HTMLDivElement>(null);
-  let started = false;
   useEffect(() => {
     async function loadSdk() {
+      // Dynamically import to Avoid SSR / ReferenceError: self is not defined
+      const { MpSdk } = await import("@matterport/webcomponent");
       if (!started && container.current) {
         console.log("Loading SDK...");
-        started = true;
-        // This gets past ReferenceError: self is not defined
+        setStarted(true);
         const newWebComponent = document.createElement("matterport-viewer");
-        newWebComponent.setAttribute("m", "SxQL3iGyoDo");
+        newWebComponent.setAttribute("m", "JGPnGQ6hosj");
         newWebComponent.setAttribute("application-key", appKey);
+        newWebComponent.setAttribute("qs", "1");
         newWebComponent.setAttribute("asset-base", "/assets");
         container.current.appendChild(newWebComponent);
 

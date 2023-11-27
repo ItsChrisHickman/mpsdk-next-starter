@@ -1,7 +1,7 @@
-import Head from 'next/head';
-import styles from '../styles/Home.module.css';
-import { Showcase } from '../components/Showcase';
-import { WebComponent } from '../components/WebComponent';
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import { Showcase } from "../components/Showcase";
+import { WebComponent } from "../components/WebComponent";
 
 export default function Home() {
   return (
