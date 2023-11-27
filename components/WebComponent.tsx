@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import styles from "../styles/WebComponent.module.css";
+import "../styles/WebComponent.module.css";
+import { MpSdk } from "@matterport/webcomponent";
 
 const appKey = "3nhn5rm8hmr1x74hsr46t7fud";
 
