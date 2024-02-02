@@ -6,6 +6,10 @@ The WebComponent is loaded dynamically as our NPM Package is not compatible with
 
 Upon installing, the latest version of our matterport-assets will automatically run - this is helpful for use within code sandbox environments.
 
-Try it on Stackblitz.com: [https://stackblitz.com/edit/mpsdk-next-starter](https://stackblitz.com/edit/mpsdk-next-starter) -- you'll need to click 'Open in New Tab' on the preview to see the @matterport/sdk preview as StackBlitz.com has CORS restrictions that prevent the IFRAME from rendering.
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/ItsChrisHickman/mpsdk-next-starter)
+
+The file: .babelrc is included to disable SWC so that this example can be experienced on
+Stackblitz without SWC.  SWC is much faster than Babel, therefore, it is recommended that
+you disable this file.  [Read More](https://nextjs.org/docs/messages/failed-loading-swc)
 
 Last updated Feb 2, 2024
