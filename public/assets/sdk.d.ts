@@ -376,17 +376,21 @@ export declare namespace Asset {
 }
 export interface Asset {
 	/**
-	 * Get colorplan data URLs and metadata.
+	 * Get colorplan data URLs and metadata. The optional sid has one caveat, it assumes that the floor count of the other space is the same as the current space.
+	 * See https://matterport.atlassian.net/browse/JSSDK-2160
 	 *
 	 * ```
 	 * const { data, imageDataUrls } = await mpSdk.Asset.getVrColorplans();
 	 * ```
+	 *
+	 * @param sid An optional string space sid. Used to access the colorplans of other spaces. Omitting this value defaults to the current space.
 	 *
 	 * @hidden
 	 * @internal
 	 * @experimental
 	 */
 	getVrColorplans(): Promise<Asset.VrColorplanData>;
+	getVrColorplans(sid: string): Promise<Asset.VrColorplanData>;
 	/**
 	 * Register a texture to use with subsequent calls like [[Tag.editIcon]].
 	 *
@@ -1782,16 +1786,7 @@ export declare namespace Mattertag {
 		/** The size of the frame to create */
 		size?: Size;
 		/**
-		 * The path between Showcase's window and your window (with the sdk).
-		 *
-		 * If you embed Showcase normally, this can be omitted.
-		 *
-		 * If you put Showcase within another level of iframe on your page, the path would be `'parent.parent'`;
-		 * Showcase's parent is the iframe, the parent of that frame is your page.
-		 *
-		 * If you programmatically open Showcase in a new window, use `'opener'`.
-		 *
-		 * When using the Bundle SDK use `''`.
+		 * @deprecated This option is no longer required and will be ignored
 		 */
 		windowPath?: string;
 		/**
@@ -1920,8 +1915,9 @@ export interface Mattertag {
 	 *
 	 * @param tagSid The sid of the Mattertag to navigate to
 	 * @param transition The type of transition to navigate to a sweep where the Mattertag disc is visible
+	 * @param force If navigating to the tag is disabled, passing force === true will force the transition to occur
 	 */
-	navigateToTag(tagSid: string, transition: Mattertag.Transition): Promise<string>;
+	navigateToTag(tagSid: string, transition: Mattertag.Transition, force?: boolean): Promise<string>;
 	/**
 	  * Get the disc's (3d) position of a Mattertag.
 	  *
@@ -2343,6 +2339,12 @@ export interface Sweep {
 	 *     console.log('On floor', currentSweep.floorInfo.sequence);
 	 *   }
 	 * });
+	 * ```
+	 *
+	 * You can also use this observable to wait until the user is in a sweep before executing additional code:
+	 *
+	 * ```typescript
+	 * await mpSdk.Sweep.current.waitUntil((currentSweep) => currentSweep.id !== '');
 	 * ```
 	 */
 	current: IObservable<Sweep.ObservableSweepData>;
@@ -3326,6 +3328,25 @@ export interface Tag {
 	 */
 	attach(tagId: string, ...attachmentIds: string[]): Promise<void>;
 	/**
+	 * Read and create transient tags from another space.
+	 *
+	 * @hidden
+	 * @internal
+	 * @experimental
+	 * @param sid external space id containg tags
+	 */
+	importTags(spaceSid: string): Promise<string[]>;
+	/**
+	 * Moves all transient tags into a persistent layer. Tag sids are not preserved.
+	 *
+	 * @return The list of newly created tags.
+	 *
+	 * @hidden
+	 * @internal
+	 * @experimental
+	 */
+	saveToLayer(): Promise<string[]>;
+	/**
 	 * Detach [[Attachment]] from a Tag.
 	 *
 	 * ```typescript
@@ -3542,7 +3563,7 @@ export interface Tag {
 	 * ```
 	 *
 	 * @param tags The descriptors for all Tags to be added.
-	 * @returns A promise that resolves with the arary of ids for the newly added Tags.
+	 * @returns A promise that resolves with the array of ids for the newly added Tags.
 	 *
 	 * @embed
 	 * @bundle
@@ -3681,13 +3702,19 @@ export interface Tag {
 	 */
 	editColor(id: string, color: Color): Promise<void>;
 	/**
-	 * Change the icon of the Tag disc
+	 * Change the icon of the Tag disc. Icons can be registered asset textures or font ids provided by the player.
+	 * Supported font ids can be found at https://matterport.github.io/showcase-sdk/tags_icons_reference.html.
 	 *
 	 * **Note**: these changes are not persisted between refreshes of Showcase. They are only valid for the current browser session.
 	 *
 	 * ```typescript
 	 * // change the icon of the Tag using the id used in a previous `Asset.registerTexture` call
 	 * mpSdk.Tag.editIcon(id, 'customIconId');
+	 * ```
+	 *
+	 * ```typescript
+	 * // change the icon of the Tag to a font id.
+	 * mpSdk.Tag.editIcon(id, 'public_buildings_apartment');
 	 * ```
 	 *
 	 * @param tagId The id of the Tag to edit
@@ -4200,16 +4227,16 @@ export declare namespace View {
 		 */
 		readonly layers: IterableIterator<Layer>;
 		/**
-		 * Set this View as the currently active one.
+		 * Set this View as the currently active one optionally, returning to the start location for the new View.
 		 *
 		 * Only one View can be active at a time.
 		 *
 		 * ```typescript
 		 * const view: View; // ... acquired through previous usage of `mpSdk.View.views`
-		 * await view.setActive();
+		 * await view.setActive(true); // set the active view and return to the start location
 		 * ```
 		 */
-		setActive(): Promise<void>;
+		setActive(returnToStart?: boolean): Promise<void>;
 		/**
 		 * Add a Layer to this View
 		 *
@@ -5446,6 +5473,7 @@ export interface Scene {
 	 * @param callback.three three.js module.
 	 * @param callback.effectComposer Matterport's EffectComposer object. This value can be null.
 	 * To enable the effect composer, you must set useEffectComposer: 1 in your application config.
+	 * Please note that enabling effect composer disables renderer.antialias (&aa=1)
 	 *
 	 * @bundle
 	 */
