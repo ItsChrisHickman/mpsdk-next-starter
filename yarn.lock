@@ -19,7 +19,7 @@
   resolved "https://registry.yarnpkg.com/@matterport/sdk/-/sdk-1.4.24.tgz#36082aa6901e97dc5b584b718636ee5b35ae9444"
   integrity sha512-w+K8pxZC0hSRfapF8jHLxDl75y8TPgtjICk0DPc1l2RbaDU8+kheRCFpgSdEYOd3HO4WD5uNsUG65qljqgDDeg==
 
-"@matterport/webcomponent@^0.1.36":
+"@matterport/webcomponent@^0.1.38":
   version "0.1.38"
   resolved "https://registry.yarnpkg.com/@matterport/webcomponent/-/webcomponent-0.1.38.tgz#9f8360fcbc5cfc790e6060923bb17d02d6354ef6"
   integrity sha512-lAIZwfHvfkbf80TzVChjM1sKrEqSZGuUE5rOId7ehUuTC3vZsoVnWhvLJNEhcSyunvItDrcy26KA2KEI8yaptA==
