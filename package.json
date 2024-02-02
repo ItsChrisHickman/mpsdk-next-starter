@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev -p 3081",
     "build": "next build",
-    "start": "next start -p 3082"
+    "start": "next start -p 3082",
+    "postinstall": "yarn matterport-assets public/assets"
   },
   "dependencies": {
     "@matterport/sdk": "^1.4.22",
