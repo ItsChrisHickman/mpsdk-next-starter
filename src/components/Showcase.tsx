@@ -1,5 +1,4 @@
-import {useEffect, useRef, useState} from 'react';
-import {MpSdk} from '@matterport/sdk';
+import {RefObject, useEffect, useRef, useState} from 'react';
 import {Brand, Dollhouse, Help, OpenBehavior, Play, Quickstart, Tour, GuidedTour, HighlightReel, MlsBehavior, Mattertags, TagNavigation, Pin, Portal, SwitchFloors, FloorPlanView, Language, Zoom, Search, Wheel, GuidedTourPan, LoopBack, Title, GuidedTourCallToAction, HighlightReelBehavior, VirtualReality} from '@/types/enums';
 
 // 'NEXT_PUBLIC_APP_KEY' can be used here as it's prefixed by 'NEXT_PUBLIC_'.
@@ -35,7 +34,7 @@ const attributeMap: Map<string, string> = new Map([
 ]);
 
 export const Showcase = ({config, setMpSdk}: SdkParams) => {
-  const [sdk, setSdk] = useState<MpSdk>(null);
+  const [sdk, setSdk] = useState<any>();
   const [started, setStarted] = useState(false);
   const container = useRef<HTMLDivElement>(null);
   const containerClassName = config.containerClassName;
@@ -45,56 +44,28 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
     const loadSDK = async () => {
       // Dynamically import to Avoid SSR / ReferenceError: self is not defined
       const {setupSdk} = await import('@matterport/sdk');
-      const currentContainer = container.current;
-      const hasChildNodes = currentContainer.hasChildNodes();
-      const frames = document.getElementsByTagName('iframe');
 
-      //TODO: hasChildNodes() does not return IFrame children. frames.length is allways 0
-      if (frames != null) {
-        const length = frames.length;
-        console.debug('frames length: ', length);
-        console.debug('frames: ', frames);
-      }
-
-      console.debug('started: ', started);
-      console.debug('currentContainer: ', currentContainer);
-      console.debug('hasChildNodes: ', hasChildNodes);
-
-      if (!started && currentContainer) {
+      if (!started) {
         setStarted(true);
-
-        if (!hasChildNodes) {
-          await LoadSdkIFrame(setupSdk, currentContainer);
-        }
+        await LoadSdkIFrame(setupSdk, container);
       }
     };
 
     loadSDK();
   });
 
-  const LoadSdkIFrame = async (setupSdk: any, currentContainer: HTMLDivElement) => {
+  const LoadSdkIFrame = async (setupSdk: any, container: RefObject<HTMLDivElement>) => {
     console.debug('Loading Showcase SDK ...');
 
-    const hasChildNodes = currentContainer.hasChildNodes();
-    const frames = document.getElementsByTagName('iframe');
-
-    console.debug('LoadSdkIFrame - hasChildNodes: ', hasChildNodes);
-
-    if (frames != null) {
-      const length = frames.length;
-      console.debug('LoadSdkIFrame - frames length: ', length);
-    }
-
-    const mpSdk: MpSdk = await setupSdk(appKey, {
+    const currentContainer = container.current;
+    const mpSdk: any = await setupSdk(appKey, {
       space: config.modelId,
       container: currentContainer,
       iframeQueryParams: setIframeQueryParams(),
-
-      //iframeQueryParams: {qs: '1'},
     });
 
     setSdk(mpSdk);
-    console.debug('SDK started.');
+    console.debug('Showcase SDK started.');
     await startApp(mpSdk);
   };
 
@@ -107,7 +78,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'help';
       const attribute = attributeMap.get(attr);
       const param = config.help;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.help) {
         case Help.Hide:
@@ -126,8 +97,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // openBehavior
@@ -135,7 +106,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'openBehavior';
       const attribute = attributeMap.get(attr);
       const param = config.openBehavior;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.openBehavior) {
         case OpenBehavior.SameBrowserTab:
@@ -150,8 +121,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // Quickstart
@@ -159,7 +130,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'quickstart';
       const attribute = attributeMap.get(attr);
       const param = config.quickstart;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.quickstart) {
         case Quickstart.Disable:
@@ -174,8 +145,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // Brand
@@ -183,7 +154,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'brand';
       const attribute = attributeMap.get(attr);
       const param = config.brand;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.brand) {
         case Brand.Hide:
@@ -198,8 +169,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // Dollhouse
@@ -207,7 +178,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'dollhouse';
       const attribute = attributeMap.get(attr);
       const param = config.dollhouse;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.dollhouse) {
         case Dollhouse.Hide:
@@ -222,8 +193,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // Tour
@@ -231,7 +202,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'tour';
       const attribute = attributeMap.get(attr);
       const param = config.tour;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.tour) {
         case Tour.Hide:
@@ -254,8 +225,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // GuidedTour
@@ -263,7 +234,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'guidedTour';
       const attribute = attributeMap.get(attr);
       const param = config.guidedTour;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.guidedTour) {
         case GuidedTour.Hide:
@@ -278,8 +249,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // HighlightReel
@@ -287,7 +258,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'highlightReel';
       const attribute = attributeMap.get(attr);
       const param = config.highlightReel;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.highlightReel) {
         case HighlightReel.Hide:
@@ -302,8 +273,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // MlsBehavior
@@ -311,7 +282,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'mlsBehavior';
       const attribute = attributeMap.get(attr);
       const param = config.mlsBehavior;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.mlsBehavior) {
         case MlsBehavior.Branding:
@@ -330,8 +301,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // Mattertags
@@ -339,7 +310,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'mattertags';
       const attribute = attributeMap.get(attr);
       const param = config.mattertags;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.mattertags) {
         case Mattertags.Hide:
@@ -354,8 +325,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // TagNavigation
@@ -363,7 +334,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'tagNavigation';
       const attribute = attributeMap.get(attr);
       const param = config.tagNavigation;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.tagNavigation) {
         case TagNavigation.Hide:
@@ -378,8 +349,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // Pin
@@ -387,7 +358,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'pin';
       const attribute = attributeMap.get(attr);
       const param = config.pin;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.pin) {
         case Pin.Hide:
@@ -402,8 +373,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // Portal
@@ -411,7 +382,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'portal';
       const attribute = attributeMap.get(attr);
       const param = config.portal;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.portal) {
         case Portal.Hide:
@@ -426,8 +397,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // SwitchFloors
@@ -435,7 +406,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'switchFloors';
       const attribute = attributeMap.get(attr);
       const param = config.switchFloors;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.switchFloors) {
         case SwitchFloors.Disable:
@@ -450,8 +421,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // FloorPlanView
@@ -459,7 +430,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'floorPlanView';
       const attribute = attributeMap.get(attr);
       const param = config.floorPlanView;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.floorPlanView) {
         case FloorPlanView.Disable:
@@ -474,8 +445,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // Language
@@ -485,8 +456,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const param = config.language;
       const parameter = config.language;
 
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter;
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter;
     }
 
     // Zoom
@@ -494,7 +465,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'zoom';
       const attribute = attributeMap.get(attr);
       const param = config.zoom;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.zoom) {
         case Zoom.Disable:
@@ -509,8 +480,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // Search
@@ -518,7 +489,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'search';
       const attribute = attributeMap.get(attr);
       const param = config.search;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.search) {
         case Search.Disable:
@@ -533,8 +504,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // GuidedTourPan
@@ -542,7 +513,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'guidedTourPan';
       const attribute = attributeMap.get(attr);
       const param = config.guidedTourPan;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.guidedTourPan) {
         case GuidedTourPan.Disable:
@@ -557,8 +528,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // LoopBack
@@ -566,7 +537,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'loopBack';
       const attribute = attributeMap.get(attr);
       const param = config.loopBack;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.loopBack) {
         case LoopBack.Disable:
@@ -581,8 +552,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // Title
@@ -590,7 +561,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'title';
       const attribute = attributeMap.get(attr);
       const param = config.title;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.title) {
         case Title.Disable:
@@ -605,8 +576,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // GuidedTourCallToAction
@@ -614,7 +585,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'guidedTourCallToAction';
       const attribute = attributeMap.get(attr);
       const param = config.guidedTourCallToAction;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.guidedTourCallToAction) {
         case GuidedTourCallToAction.Disable:
@@ -633,8 +604,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // HighlightReelBehavior
@@ -642,7 +613,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'highlightReelBehavior';
       const attribute = attributeMap.get(attr);
       const param = config.highlightReelBehavior;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.highlightReelBehavior) {
         case HighlightReelBehavior.Briefly:
@@ -661,8 +632,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     // VirtualReality
@@ -670,7 +641,7 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
       const attr = 'virtualReality';
       const attribute = attributeMap.get(attr);
       const param = config.virtualReality;
-      let parameter: Nullable<number>;
+      let parameter = -1;
 
       switch (config.virtualReality) {
         case VirtualReality.Hide:
@@ -685,8 +656,8 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
           console.error(`Wrong ${attr} value`, param);
           break;
       }
-      console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
-      queryParams[attribute] = parameter.toString();
+      //console.debug(attr, `(${attribute})`, '-', `'${param}'`, parameter.toString());
+      queryParams[attribute!] = parameter.toString();
     }
 
     return queryParams;
@@ -701,6 +672,6 @@ export const Showcase = ({config, setMpSdk}: SdkParams) => {
   );
 };
 
-const startApp = async (mpSdk: MpSdk) => {
+const startApp = async (mpSdk: any) => {
   console.debug('SDK NPM Package Loaded', mpSdk);
 };
