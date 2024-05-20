@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Home</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">@matterport/sdk and @matterport/webcomponent Next.js Starter app,</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="SdkConfig.html">SdkConfig</a></li><li><a href="WebComponentConfig.html">WebComponentConfig</a></li></ul><h3>Components</h3><ul><li><a href="Home.html">Home</a></li><li><a href="Showcase.html">Showcase</a></li><li><a href="WebComponent.html">WebComponent</a></li></ul></div><div class="category"><h2>Enum</h2><h3>Global</h3><ul><li><a href="global.html#Brand">Brand</a></li><li><a href="global.html#Dollhouse">Dollhouse</a></li><li><a href="global.html#FloorPlanView">FloorPlanView</a></li><li><a href="global.html#GuidedTour">GuidedTour</a></li><li><a href="global.html#GuidedTourCallToAction">GuidedTourCallToAction</a></li><li><a href="global.html#GuidedTourPan">GuidedTourPan</a></li><li><a href="global.html#Help">Help</a></li><li><a href="global.html#HighlightReel">HighlightReel</a></li><li><a href="global.html#HighlightReelBehavior">HighlightReelBehavior</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LoopBack">LoopBack</a></li><li><a href="global.html#Mattertags">Mattertags</a></li><li><a href="global.html#MlsBehavior">MlsBehavior</a></li><li><a href="global.html#OpenBehavior">OpenBehavior</a></li><li><a href="global.html#Pin">Pin</a></li><li><a href="global.html#Play">Play</a></li><li><a href="global.html#Portal">Portal</a></li><li><a href="global.html#Quickstart">Quickstart</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SwitchFloors">SwitchFloors</a></li><li><a href="global.html#TagNavigation">TagNavigation</a></li><li><a href="global.html#Title">Title</a></li><li><a href="global.html#Tour">Tour</a></li><li><a href="global.html#VirtualReality">VirtualReality</a></li><li><a href="global.html#Wheel">Wheel</a></li><li><a href="global.html#Zoom">Zoom</a></li></ul></div><div class="category"><h2>Function</h2><h3>Global</h3><ul><li><a href="global.html#setAttributes">setAttributes</a></li><li><a href="global.html#setComponentAttributes">setComponentAttributes</a></li><li><a href="global.html#setIframeQueryParams">setIframeQueryParams</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p></p>
+                    <h1>Home</h1>
+                </header>
+                
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>Matterport SDK Next.js Starter</h1>
+<p>This is an attempt to create a Next.js starter that shows how to integrate both the <a href="https://www.npmjs.com/package/@matterport/webcomponent">Matterport WebComponent</a> and <a href="https://www.npmjs.com/package/@matterport/sdk">@matterport/sdk</a>.</p>
+<p>The WebComponent is loaded dynamically as our NPM Package is not compatible with server side rendering.</p>
+<p>Upon installing, the latest version of our matterport-assets will automatically run - this is helpful for use within code sandbox environments.</p>
+<h2>Base Next.js project</h2>
+<p>The Base Next.js project is a <a href="https://nextjs.org/">Next.js</a> project bootstrapped with <a href="https://github.com/vercel/next.js/tree/canary/packages/create-next-app"><code>create-next-app</code></a>.</p>
+<p><img src="images/Create_NextJS_App.jpg" alt="Create NextJS App"></p>
+<h3>Environment Variables</h3>
+<p>Rename <code>.env.local.demo</code> file to <code>.env.local</code> and set these variables:</p>
+<ul>
+<li><code>NEXT_PUBLIC_MODEL_ID</code></li>
+<li><code>NEXT_PUBLIC_APP_KEY</code></li>
+</ul>
+<h3>Install</h3>
+<pre class="prettyprint source lang-bash"><code>yarn install
+</code></pre>
+<h3>Run</h3>
+<pre class="prettyprint source lang-bash"><code>yarn dev
+</code></pre>
+<p>Open <a href="http://localhost:3081">http://localhost:3081</a> with your browser to see the result.</p>
+<p><a href="https://stackblitz.com/github/ItsChrisHickman/mpsdk-next-starter"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" alt="Open in StackBlitz"></a></p>
+<p>The file: .babelrc is included to disable SWC so that this example can be experienced on
+Stackblitz without SWC.  SWC is much faster than Babel, therefore, it is recommended that
+you disable this file.  <a href="https://nextjs.org/docs/messages/failed-loading-swc">Read More</a></p>
+<p>Last updated Apr 3, 2024</p></article>
+    </section>
+
+
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

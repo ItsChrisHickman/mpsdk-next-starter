@@ -8,11 +8,13 @@
     "start": "next start -p 3082",
     "postinstall": "yarn matterport-assets public/assets",
     "lint": "next lint",
-    "fix": "prettier -w \"src/**/*.{ts,tsx,json,js,jsx}\""
+    "fix": "prettier -w \"src/**/*.{ts,tsx,json,js,jsx}\"",
+    "docs": "jsdoc -c jsdoc.json"
   },
   "dependencies": {
     "@matterport/sdk": "^1.4.24",
     "@matterport/webcomponent": "^0.1.39",
+    "@types/three": "0.151.0",
     "exenv": "^1.2.2",
     "next": "^14",
     "react": "^18",
@@ -32,6 +34,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.19",
+    "better-docs": "^2.7.3",
     "eslint": "8.x",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "14.2.3",

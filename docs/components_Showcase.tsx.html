@@ -1,0 +1,185 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/Showcase.tsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">@matterport/sdk and @matterport/webcomponent Next.js Starter app,</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="SdkConfig.html">SdkConfig</a></li><li><a href="WebComponentConfig.html">WebComponentConfig</a></li></ul><h3>Components</h3><ul><li><a href="Home.html">Home</a></li><li><a href="Showcase.html">Showcase</a></li><li><a href="WebComponent.html">WebComponent</a></li></ul></div><div class="category"><h2>Enum</h2><h3>Global</h3><ul><li><a href="global.html#Brand">Brand</a></li><li><a href="global.html#Dollhouse">Dollhouse</a></li><li><a href="global.html#FloorPlanView">FloorPlanView</a></li><li><a href="global.html#GuidedTour">GuidedTour</a></li><li><a href="global.html#GuidedTourCallToAction">GuidedTourCallToAction</a></li><li><a href="global.html#GuidedTourPan">GuidedTourPan</a></li><li><a href="global.html#Help">Help</a></li><li><a href="global.html#HighlightReel">HighlightReel</a></li><li><a href="global.html#HighlightReelBehavior">HighlightReelBehavior</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LoopBack">LoopBack</a></li><li><a href="global.html#Mattertags">Mattertags</a></li><li><a href="global.html#MlsBehavior">MlsBehavior</a></li><li><a href="global.html#OpenBehavior">OpenBehavior</a></li><li><a href="global.html#Pin">Pin</a></li><li><a href="global.html#Play">Play</a></li><li><a href="global.html#Portal">Portal</a></li><li><a href="global.html#Quickstart">Quickstart</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SwitchFloors">SwitchFloors</a></li><li><a href="global.html#TagNavigation">TagNavigation</a></li><li><a href="global.html#Title">Title</a></li><li><a href="global.html#Tour">Tour</a></li><li><a href="global.html#VirtualReality">VirtualReality</a></li><li><a href="global.html#Wheel">Wheel</a></li><li><a href="global.html#Zoom">Zoom</a></li></ul></div><div class="category"><h2>Function</h2><h3>Global</h3><ul><li><a href="global.html#setAttributes">setAttributes</a></li><li><a href="global.html#setComponentAttributes">setComponentAttributes</a></li><li><a href="global.html#setIframeQueryParams">setIframeQueryParams</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/Showcase.tsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {RefObject, useEffect, useRef, useState} from 'react';
+import {setIframeQueryParams} from '@/lib/Util';
+
+// 'NEXT_PUBLIC_APP_KEY' can be used here as it's prefixed by 'NEXT_PUBLIC_'.
+// It will be transformed at build time to `'abcdefghij0123456789abcde'`.
+const appKey = process.env.NEXT_PUBLIC_APP_KEY;
+
+/**
+ * Showcase wrapper for @matterport/sdk (IFrame HTML element).
+ *
+ * @param {any} param
+ * @param {SdkConfig} param.config Sdk Config
+ * @param {any} param.setMpSdk Pased setMpSdk useStat setter function.
+ * @returns {JSX.Element} Component
+ * @component
+ */
+export const Showcase = ({config, setMpSdk}: SdkParams) => {
+  const [sdk, setSdk] = useState&lt;any>();
+  const [started, setStarted] = useState(false);
+  const container = useRef&lt;HTMLDivElement>(null);
+  const containerClassName = config.containerClassName;
+  const componentClassName = config.componentClassName;
+
+  useEffect(() => {
+    const loadSDK = async () => {
+      // Dynamically import to Avoid SSR / ReferenceError: self is not defined
+      const {setupSdk} = await import('@matterport/sdk');
+
+      if (!started) {
+        setStarted(true);
+        await LoadSdkIFrame(setupSdk, container);
+      }
+    };
+
+    loadSDK();
+  });
+
+  const LoadSdkIFrame = async (setupSdk: any, container: RefObject&lt;HTMLDivElement>) => {
+    console.debug('Loading Showcase SDK ...');
+
+    const currentContainer = container.current;
+    const mpSdk: any = await setupSdk(appKey, {
+      space: config.modelId,
+      container: currentContainer,
+      iframeQueryParams: setIframeQueryParams(config),
+    });
+
+    setSdk(mpSdk);
+    console.debug('Showcase SDK started.');
+    await startApp(mpSdk);
+  };
+
+  return (
+    // Main Container
+    &lt;div className={containerClassName}>
+      {/* Component Container */}
+      &lt;div className={componentClassName} ref={container}>&lt;/div>
+    &lt;/div>
+  );
+};
+
+const startApp = async (mpSdk: any) => {
+  console.debug('SDK NPM Package Loaded', mpSdk);
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

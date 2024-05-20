@@ -1,0 +1,28 @@
+{
+  "tags": {
+    "allowUnknownTags": [ "component", "category", "optional" ],
+    "dictionaries": [ "jsdoc", "closure" ]
+  },
+  "source": {
+    "include": [ "src" ],
+    "includePattern": "\\.(js|jsx|ts|tsx)$",
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "plugins": [
+    "plugins/markdown",
+    "node_modules/better-docs/typescript",
+    "node_modules/better-docs/component",
+    "node_modules/better-docs/category"
+  ],
+  "templates": {
+    "better-docs": {
+      "name": "@matterport/sdk and @matterport/webcomponent Next.js Starter app,"
+    }
+  },
+  "opts": {
+    "destination": "docs",
+    "recurse": true,
+    "readme": "README.md",
+    "template": "node_modules/better-docs"
+  }
+}

@@ -1,0 +1,2491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> WebComponentConfig</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">@matterport/sdk and @matterport/webcomponent Next.js Starter app,</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="SdkConfig.html">SdkConfig</a></li><li><a href="WebComponentConfig.html">WebComponentConfig</a></li></ul><h3>Components</h3><ul><li><a href="Home.html">Home</a></li><li><a href="Showcase.html">Showcase</a></li><li><a href="WebComponent.html">WebComponent</a></li></ul></div><div class="category"><h2>Enum</h2><h3>Global</h3><ul><li><a href="global.html#Brand">Brand</a></li><li><a href="global.html#Dollhouse">Dollhouse</a></li><li><a href="global.html#FloorPlanView">FloorPlanView</a></li><li><a href="global.html#GuidedTour">GuidedTour</a></li><li><a href="global.html#GuidedTourCallToAction">GuidedTourCallToAction</a></li><li><a href="global.html#GuidedTourPan">GuidedTourPan</a></li><li><a href="global.html#Help">Help</a></li><li><a href="global.html#HighlightReel">HighlightReel</a></li><li><a href="global.html#HighlightReelBehavior">HighlightReelBehavior</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LoopBack">LoopBack</a></li><li><a href="global.html#Mattertags">Mattertags</a></li><li><a href="global.html#MlsBehavior">MlsBehavior</a></li><li><a href="global.html#OpenBehavior">OpenBehavior</a></li><li><a href="global.html#Pin">Pin</a></li><li><a href="global.html#Play">Play</a></li><li><a href="global.html#Portal">Portal</a></li><li><a href="global.html#Quickstart">Quickstart</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SwitchFloors">SwitchFloors</a></li><li><a href="global.html#TagNavigation">TagNavigation</a></li><li><a href="global.html#Title">Title</a></li><li><a href="global.html#Tour">Tour</a></li><li><a href="global.html#VirtualReality">VirtualReality</a></li><li><a href="global.html#Wheel">Wheel</a></li><li><a href="global.html#Zoom">Zoom</a></li></ul></div><div class="category"><h2>Function</h2><h3>Global</h3><ul><li><a href="global.html#setAttributes">setAttributes</a></li><li><a href="global.html#setComponentAttributes">setComponentAttributes</a></li><li><a href="global.html#setIframeQueryParams">setIframeQueryParams</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Interface</p>
+                    <h1>WebComponentConfig</h1>
+                </header>
+                
+
+
+
+
+<section>
+
+<header>
+    
+        <h2>WebComponentConfig</h2>
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description"><p>WebComponentConfig - Parameters - https://support.matterport.com/s/article/URL-Parameters</p></div>
+        
+
+        
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line7">line 7</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+        
+    
+    </div>
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <div class='vertical-section'>
+            <h1>Members</h1>
+            <div class="members">
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type">string</code>
+
+
+    </span>
+
+<h4 class="name" id="assetBase">
+    <a class="href-link" href="#assetBase">#</a>
+    
+    <span class="code-name">
+        assetBase
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Asset Base e.g. '/assets'</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line18">line 18</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Brand">Brand</a></code>
+
+
+    </span>
+
+<h4 class="name" id="brand">
+    <a class="href-link" href="#brand">#</a>
+    
+    <span class="code-name">
+        brand
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Visibility: brand</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line45">line 45</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type">string</code>
+
+
+    </span>
+
+<h4 class="name" id="componentClassName">
+    <a class="href-link" href="#componentClassName">#</a>
+    
+    <span class="code-name">
+        componentClassName
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Component class name</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line26">line 26</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type">string</code>
+
+
+    </span>
+
+<h4 class="name" id="containerClassName">
+    <a class="href-link" href="#containerClassName">#</a>
+    
+    <span class="code-name">
+        containerClassName
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Container class name</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line22">line 22</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Dollhouse">Dollhouse</a></code>
+
+
+    </span>
+
+<h4 class="name" id="dollhouse">
+    <a class="href-link" href="#dollhouse">#</a>
+    
+    <span class="code-name">
+        dollhouse
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Visibility: dh</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line50">line 50</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#FloorPlanView">FloorPlanView</a></code>
+
+
+    </span>
+
+<h4 class="name" id="floorPlanView">
+    <a class="href-link" href="#floorPlanView">#</a>
+    
+    <span class="code-name">
+        floorPlanView
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>User Interface: fp</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line100">line 100</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#GuidedTour">GuidedTour</a></code>
+
+
+    </span>
+
+<h4 class="name" id="guidedTour">
+    <a class="href-link" href="#guidedTour">#</a>
+    
+    <span class="code-name">
+        guidedTour
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Visibility: gt</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line60">line 60</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#GuidedTourCallToAction">GuidedTourCallToAction</a></code>
+
+
+    </span>
+
+<h4 class="name" id="guidedTourCallToAction">
+    <a class="href-link" href="#guidedTourCallToAction">#</a>
+    
+    <span class="code-name">
+        guidedTourCallToAction
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Guided Tours: tourcta</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line135">line 135</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#GuidedTourPan">GuidedTourPan</a></code>
+
+
+    </span>
+
+<h4 class="name" id="guidedTourPan">
+    <a class="href-link" href="#guidedTourPan">#</a>
+    
+    <span class="code-name">
+        guidedTourPan
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Guided Tours: kb</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line120">line 120</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Help">Help</a></code>
+
+
+    </span>
+
+<h4 class="name" id="help">
+    <a class="href-link" href="#help">#</a>
+    
+    <span class="code-name">
+        help
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Launching 3D Showcase: help</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line30">line 30</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#HighlightReel">HighlightReel</a></code>
+
+
+    </span>
+
+<h4 class="name" id="highlightReel">
+    <a class="href-link" href="#highlightReel">#</a>
+    
+    <span class="code-name">
+        highlightReel
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Visibility: hr</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line65">line 65</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#HighlightReelBehavior">HighlightReelBehavior</a></code>
+
+
+    </span>
+
+<h4 class="name" id="highlightReelBehavior">
+    <a class="href-link" href="#highlightReelBehavior">#</a>
+    
+    <span class="code-name">
+        highlightReelBehavior
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Guided Tours: hl</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line145">line 145</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Language">Language</a></code>
+
+
+    </span>
+
+<h4 class="name" id="language">
+    <a class="href-link" href="#language">#</a>
+    
+    <span class="code-name">
+        language
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>User Interface: lang</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line105">line 105</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#LoopBack">LoopBack</a></code>
+
+
+    </span>
+
+<h4 class="name" id="loopBack">
+    <a class="href-link" href="#loopBack">#</a>
+    
+    <span class="code-name">
+        loopBack
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Guided Tours: lp</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line125">line 125</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Mattertags">Mattertags</a></code>
+
+
+    </span>
+
+<h4 class="name" id="mattertags">
+    <a class="href-link" href="#mattertags">#</a>
+    
+    <span class="code-name">
+        mattertags
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Visibility: mt</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line75">line 75</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#MlsBehavior">MlsBehavior</a></code>
+
+
+    </span>
+
+<h4 class="name" id="mlsBehavior">
+    <a class="href-link" href="#mlsBehavior">#</a>
+    
+    <span class="code-name">
+        mlsBehavior
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Visibility: mls</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line70">line 70</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type">string</code>
+
+
+    </span>
+
+<h4 class="name" id="modelId">
+    <a class="href-link" href="#modelId">#</a>
+    
+    <span class="code-name">
+        modelId
+    </span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Model Id</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line14">line 14</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#OpenBehavior">OpenBehavior</a></code>
+
+
+    </span>
+
+<h4 class="name" id="openBehavior">
+    <a class="href-link" href="#openBehavior">#</a>
+    
+    <span class="code-name">
+        openBehavior
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Launching 3D Showcase: nt. Only for mobile</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line35">line 35</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Pin">Pin</a></code>
+
+
+    </span>
+
+<h4 class="name" id="pin">
+    <a class="href-link" href="#pin">#</a>
+    
+    <span class="code-name">
+        pin
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Visibility: pin</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line85">line 85</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Portal">Portal</a></code>
+
+
+    </span>
+
+<h4 class="name" id="portal">
+    <a class="href-link" href="#portal">#</a>
+    
+    <span class="code-name">
+        portal
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Visibility: portal</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line90">line 90</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Quickstart">Quickstart</a></code>
+
+
+    </span>
+
+<h4 class="name" id="quickstart">
+    <a class="href-link" href="#quickstart">#</a>
+    
+    <span class="code-name">
+        quickstart
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Launching 3D Showcase: qs</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line40">line 40</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Search">Search</a></code>
+
+
+    </span>
+
+<h4 class="name" id="search">
+    <a class="href-link" href="#search">#</a>
+    
+    <span class="code-name">
+        search
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>User Interface: search</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line115">line 115</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#SwitchFloors">SwitchFloors</a></code>
+
+
+    </span>
+
+<h4 class="name" id="switchFloors">
+    <a class="href-link" href="#switchFloors">#</a>
+    
+    <span class="code-name">
+        switchFloors
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>User Interface: f</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line95">line 95</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#TagNavigation">TagNavigation</a></code>
+
+
+    </span>
+
+<h4 class="name" id="tagNavigation">
+    <a class="href-link" href="#tagNavigation">#</a>
+    
+    <span class="code-name">
+        tagNavigation
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Visibility: tagNavigation</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line80">line 80</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type">number</code>
+
+
+    </span>
+
+<h4 class="name" id="timeBeforeGuidedTour">
+    <a class="href-link" href="#timeBeforeGuidedTour">#</a>
+    
+    <span class="code-name">
+        timeBeforeGuidedTour
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Guided Tours: ts. Set this parameter to start the tour automatically and define the number of seconds after initial fly-in before the Guided Tour automatically starts. Help is not shown. Set to a negative number to not start the Guided Tour.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line140">line 140</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Title">Title</a></code>
+
+
+    </span>
+
+<h4 class="name" id="title">
+    <a class="href-link" href="#title">#</a>
+    
+    <span class="code-name">
+        title
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Guided Tours: title</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line130">line 130</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Tour">Tour</a></code>
+
+
+    </span>
+
+<h4 class="name" id="tour">
+    <a class="href-link" href="#tour">#</a>
+    
+    <span class="code-name">
+        tour
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Visibility: tour</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line55">line 55</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#VirtualReality">VirtualReality</a></code>
+
+
+    </span>
+
+<h4 class="name" id="virtualReality">
+    <a class="href-link" href="#virtualReality">#</a>
+    
+    <span class="code-name">
+        virtualReality
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>Virtual Reality: vr</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line150">line 150</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+                <div class="member">
+
+    <span class="method-parameter is-pulled-right">
+        <label>Type:</label>
+        
+<code class="param-type"><a href="global.html#Zoom">Zoom</a></code>
+
+
+    </span>
+
+<h4 class="name" id="zoom">
+    <a class="href-link" href="#zoom">#</a>
+    
+    <span class="code-name">
+        zoom
+    </span>
+    
+        <span class='tag'>Optional</span>
+    
+</h4>
+
+
+
+
+<div class="description">
+    <p>User Interface: nozoom</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="types_global.d.ts.html" class="button">View Source</a>
+            <span>
+                <a href="types_global.d.ts.html">types/global.d.ts</a>, <a href="types_global.d.ts.html#line110">line 110</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+</div>
+            
+            </div>
+        </div>
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>
