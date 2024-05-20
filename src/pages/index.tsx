@@ -1,16 +1,17 @@
-'use client';
-
-import {useState, useEffect, Dispatch} from 'react';
-import {Showcase} from '@/components/Showcase';
+import {useState, useEffect} from 'react';
 import {MpSdk} from '@matterport/webcomponent';
+import {Showcase} from '@/components/Showcase';
 import {WebComponent} from '@/components/WebComponent';
 import {Brand, Dollhouse, Help, OpenBehavior, Play, Quickstart, Tour, GuidedTour, HighlightReel, MlsBehavior, Mattertags, TagNavigation, Pin, Portal, SwitchFloors, FloorPlanView, Language, Zoom, Search, Wheel, GuidedTourPan, LoopBack, Title, GuidedTourCallToAction, HighlightReelBehavior, VirtualReality} from '@/types/enums';
 
+const a = 'b';
+
+//TODO: Check out Intersection Observer API - https://www.dhiwise.com/post/implementing-next-js-lazy-loading-for-optimized-web-apps
 //TODO: Add getStaticProps() - https://blog.logrocket.com/using-next-js-with-typescript/
 const Home = () => {
   const [sdk, setSdk] = useState<MpSdk>(null);
   const configSdk: SdkConfig = {
-    modelId: process.env.NEXT_PUBLIC_MODEL_ID,
+    modelId: process.env.NEXT_PUBLIC_MODEL_ID!,
     assetBase: '/assets',
     containerClassName: 'showcase flex h-screen p-2 bg-teal-500',
     componentClassName: 'relative flex-1',
@@ -38,13 +39,13 @@ const Home = () => {
     loopBack: LoopBack.Disable,
     title: Title.Enable,
     guidedTourCallToAction: GuidedTourCallToAction.Large,
-    timeBeforeGuidedTour: null,
+    timeBeforeGuidedTour: undefined,
     highlightReelBehavior: HighlightReelBehavior.Expended,
     virtualReality: VirtualReality.Hide,
   };
 
   const config: WebComponentConfig = {
-    modelId: process.env.NEXT_PUBLIC_MODEL_ID,
+    modelId: process.env.NEXT_PUBLIC_MODEL_ID!,
     assetBase: '/assets',
     containerClassName: 'showcase flex h-screen p-2 bg-teal-500',
     componentClassName: 'relative flex-1',
@@ -70,7 +71,7 @@ const Home = () => {
     loopBack: LoopBack.Disable,
     title: Title.Enable,
     guidedTourCallToAction: GuidedTourCallToAction.Large,
-    timeBeforeGuidedTour: null,
+    timeBeforeGuidedTour: undefined,
     highlightReelBehavior: HighlightReelBehavior.Expended,
     virtualReality: VirtualReality.Hide,
   };
@@ -88,9 +89,10 @@ const Home = () => {
   return (
     <div className="flex flex-col h-screen p-2 bg-gray-200">
       {/* TODO: Avoid 2 instances loading */}
-      {/* <h2>Showcase SDK</h2>
-      <Showcase config={configSdk} setMpSdk={setSdk} /> */}
+      <h2>Showcase SDK</h2>
+      <Showcase config={configSdk} setMpSdk={setSdk} />
 
+      <br />
       <h2>Web Component</h2>
       <WebComponent config={config} setMpSdk={setSdk} />
     </div>
