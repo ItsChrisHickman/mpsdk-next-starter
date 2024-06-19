@@ -120,6 +120,7 @@ interface WebComponentConfig {
 /**
  * SdkConfig - Parameters - https://support.matterport.com/s/article/URL-Parameters
  *
+ * @extends WebComponentConfig
  * @interface
  * @public
  */

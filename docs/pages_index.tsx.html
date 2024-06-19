@@ -1,0 +1,224 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> pages/index.tsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">@matterport/sdk and @matterport/webcomponent Next.js Starter app,</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Interfaces</h3><ul><li><a href="SdkConfig.html">SdkConfig</a></li><li><a href="WebComponentConfig.html">WebComponentConfig</a></li></ul><h3>Components</h3><ul><li><a href="Home.html">Home</a></li><li><a href="Showcase.html">Showcase</a></li><li><a href="WebComponent.html">WebComponent</a></li></ul></div><div class="category"><h2>Enum</h2><h3>Global</h3><ul><li><a href="global.html#Brand">Brand</a></li><li><a href="global.html#Dollhouse">Dollhouse</a></li><li><a href="global.html#FloorPlanView">FloorPlanView</a></li><li><a href="global.html#GuidedTour">GuidedTour</a></li><li><a href="global.html#GuidedTourCallToAction">GuidedTourCallToAction</a></li><li><a href="global.html#GuidedTourPan">GuidedTourPan</a></li><li><a href="global.html#Help">Help</a></li><li><a href="global.html#HighlightReel">HighlightReel</a></li><li><a href="global.html#HighlightReelBehavior">HighlightReelBehavior</a></li><li><a href="global.html#Language">Language</a></li><li><a href="global.html#LoopBack">LoopBack</a></li><li><a href="global.html#Mattertags">Mattertags</a></li><li><a href="global.html#MlsBehavior">MlsBehavior</a></li><li><a href="global.html#OpenBehavior">OpenBehavior</a></li><li><a href="global.html#Pin">Pin</a></li><li><a href="global.html#Play">Play</a></li><li><a href="global.html#Portal">Portal</a></li><li><a href="global.html#Quickstart">Quickstart</a></li><li><a href="global.html#Search">Search</a></li><li><a href="global.html#SwitchFloors">SwitchFloors</a></li><li><a href="global.html#TagNavigation">TagNavigation</a></li><li><a href="global.html#Title">Title</a></li><li><a href="global.html#Tour">Tour</a></li><li><a href="global.html#VirtualReality">VirtualReality</a></li><li><a href="global.html#Wheel">Wheel</a></li><li><a href="global.html#Zoom">Zoom</a></li></ul></div><div class="category"><h2>Function</h2><h3>Global</h3><ul><li><a href="global.html#setAttributes">setAttributes</a></li><li><a href="global.html#setComponentAttributes">setComponentAttributes</a></li><li><a href="global.html#setIframeQueryParams">setIframeQueryParams</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>pages/index.tsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import {useState, useEffect} from 'react';
+import {MpSdk} from '@matterport/webcomponent';
+import {Showcase} from '@/components/Showcase';
+import {WebComponent} from '@/components/WebComponent';
+import {Brand, Dollhouse, Help, OpenBehavior, Play, Quickstart, Tour, GuidedTour, HighlightReel, MlsBehavior, Mattertags, TagNavigation, Pin, Portal, SwitchFloors, FloorPlanView, Language, Zoom, Search, Wheel, GuidedTourPan, LoopBack, Title, GuidedTourCallToAction, HighlightReelBehavior, VirtualReality} from '@/types/enums';
+
+/**
+ * Home component. MpViewer wrapper
+ *
+ * @returns {JSX.Element} Component
+ * @component
+ */
+const Home = () => {
+  const [sdk, setSdk] = useState&lt;MpSdk>(null);
+  const configSdk: SdkConfig = {
+    modelId: process.env.NEXT_PUBLIC_MODEL_ID!,
+    assetBase: '/assets',
+    containerClassName: 'showcase flex h-screen p-2 bg-teal-500',
+    componentClassName: 'relative flex-1',
+    help: Help.Hide,
+    openBehavior: OpenBehavior.SameBrowserTab,
+    quickstart: Quickstart.Enable,
+    play: Play.Manual,
+    brand: Brand.Hide,
+    dollhouse: Dollhouse.Show,
+    tour: Tour.Model,
+    guidedTour: GuidedTour.Show,
+    highlightReel: HighlightReel.Show,
+    mlsBehavior: MlsBehavior.Branding,
+    mattertags: Mattertags.Show,
+    tagNavigation: TagNavigation.Show,
+    pin: Pin.Show,
+    portal: Portal.Show,
+    switchFloors: SwitchFloors.Enable,
+    floorPlanView: FloorPlanView.Enable,
+    language: Language.Default,
+    zoom: Zoom.Enable,
+    search: Search.Enable,
+    wheel: Wheel.Enable,
+    guidedTourPan: GuidedTourPan.Disable,
+    loopBack: LoopBack.Disable,
+    title: Title.Enable,
+    guidedTourCallToAction: GuidedTourCallToAction.Large,
+    timeBeforeGuidedTour: undefined,
+    highlightReelBehavior: HighlightReelBehavior.Expended,
+    virtualReality: VirtualReality.Hide,
+  };
+
+  const config: WebComponentConfig = {
+    modelId: process.env.NEXT_PUBLIC_MODEL_ID!,
+    assetBase: '/assets',
+    containerClassName: 'showcase flex h-screen p-2 bg-teal-500',
+    componentClassName: 'relative flex-1',
+    help: Help.Hide,
+    openBehavior: OpenBehavior.SameBrowserTab,
+    quickstart: Quickstart.Enable,
+    brand: Brand.Hide,
+    dollhouse: Dollhouse.Show,
+    tour: Tour.Model,
+    guidedTour: GuidedTour.Show,
+    highlightReel: HighlightReel.Show,
+    mlsBehavior: MlsBehavior.Branding,
+    mattertags: Mattertags.Show,
+    tagNavigation: TagNavigation.Show,
+    pin: Pin.Show,
+    portal: Portal.Show,
+    switchFloors: SwitchFloors.Enable,
+    floorPlanView: FloorPlanView.Enable,
+    language: Language.Default,
+    zoom: Zoom.Enable,
+    search: Search.Enable,
+    guidedTourPan: GuidedTourPan.Disable,
+    loopBack: LoopBack.Disable,
+    title: Title.Enable,
+    guidedTourCallToAction: GuidedTourCallToAction.Large,
+    timeBeforeGuidedTour: undefined,
+    highlightReelBehavior: HighlightReelBehavior.Expended,
+    virtualReality: VirtualReality.Hide,
+  };
+
+  useEffect(() => {
+    const init = async () => {
+      if (sdk != null) {
+        console.debug('Home: sdk', sdk);
+      }
+    };
+
+    init();
+  });
+
+  return (
+    &lt;div className="flex flex-col h-screen p-2 bg-gray-200">
+      &lt;h2>Showcase SDK&lt;/h2>
+      &lt;Showcase config={configSdk} setMpSdk={setSdk} />
+
+      &lt;br />
+      &lt;h2>Web Component&lt;/h2>
+      &lt;WebComponent config={config} setMpSdk={setSdk} />
+    &lt;/div>
+  );
+};
+
+export default Home;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.3</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>
